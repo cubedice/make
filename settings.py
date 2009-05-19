@@ -68,7 +68,7 @@ ROOT_URLCONF = 'make.urls'
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
-	"/Users/kevindavenport/Documents/djangoprojects/make/templates/"
+    "c:/workspace/make/templates/"
 )
 
 INSTALLED_APPS = (
@@ -76,9 +76,10 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-	'make.wiki',
-	'make.blog',
-	'django.contrib.markup',
-	'django.contrib.comments',
-	'django.contrib.admin',
+    'make.wiki',
+    'make.blog',
+    'django.contrib.markup',
+    'django.contrib.comments',
+    'django.contrib.admin',
+    'django_extensions',
 )

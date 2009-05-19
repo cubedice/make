@@ -19,4 +19,7 @@ urlpatterns = patterns('',
 	(r'^blog/(?P<post_title>[^/]+)/$', 'make.blog.views.view_post'), 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    (r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    (r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
+    
 )

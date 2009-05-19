@@ -1,6 +1,7 @@
 from make.wiki.models import Page
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 import markdown
 
 def view_page(request, page_title):
@@ -11,6 +12,7 @@ def view_page(request, page_title):
 	content = page.content
 	return render_to_response("view.html", {"page_title":page_title, "content":markdown.markdown(content)})
 
+@login_required
 def edit_page(request, page_title):
 	try:
 		page = Page.objects.get(pk = page_title)
