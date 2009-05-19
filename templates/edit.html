@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>{{page_title}} - Edit</title>
+	</head>
+	<body>
+		<h1>Editing {{page_title}}</h1>
+		<form method="post" action="/wiki/{{page_title}}/save/">
+			<textarea name="content" rows="20" cols="60">{{content}}
+			</textarea>
+			<br>
+			<input type="submit" value="Save Page">
+		</form>
+	</body>
+</html>

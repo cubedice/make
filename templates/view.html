@@ -1,0 +1,11 @@
+{% load markup %}
+<html>
+	<head>
+		<title>{{page_title}}</title>
+	</head>
+	<body>
+		{{content|markdown}}
+		<br>
+		<a href="/wiki/{{page_title}}/edit/">Edit</a>
+	</body>
+</html>

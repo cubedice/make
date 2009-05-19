@@ -1,0 +1,26 @@
+{% load comments %}
+<html>
+	<head>
+		<title>{{post.title}}</title>
+	</head>
+	<body>
+		{{post.content}}
+		<hr>
+		{% get_comment_list for post as comment_list %}
+		{% for comment in comment_list %} 
+			<p> 
+				{{comment.user_name}}
+				<hr>
+				{{comment.comment}}
+			</p>
+		{% endfor %}
+		{% get_comment_form for post as form %}
+		<form action="{% comment_form_target %}" method="POST">
+		  {{ form }}
+		  <tr>
+			<td></td>
+			<td><input type="submit" name="preview" class="submit-post" value="Preview"></td>
+		  </tr>
+		</form>
+
+
