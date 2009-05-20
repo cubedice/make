@@ -82,4 +82,10 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.admin',
     'django_extensions',
+    'haystack',
 )
+
+HAYSTACK_SEARCH_ENGINE='whoosh'
+
+HAYSTACK_WHOOSH_PATH='c:/workspace/whoosh/make_index'
+
