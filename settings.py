@@ -78,6 +78,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'make.wiki',
     'make.blog',
+	'make.forum',
     'django.contrib.markup',
     'django.contrib.comments',
     'django.contrib.admin',
@@ -85,7 +86,7 @@ INSTALLED_APPS = (
     'haystack',
 )
 
-HAYSTACK_SEARCH_ENGINE='whoosh'
+HAYSTACK_SEARCH_ENGINE='solr'
 
 HAYSTACK_WHOOSH_PATH='c:/workspace/whoosh/make_index'
 

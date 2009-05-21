@@ -7,11 +7,9 @@ class Thread(models.Model):
 class Poll(Thread):
     yeas = models.PositiveIntegerField()
     nays = models.PositiveIntegerField()
-    description = models.TextField(blank = False) 
 
-class ForumPost(models.Model):
+class Forum_Post(models.Model):
     isSticky = models.BooleanField()
     poster = models.ForeignKey(User)
     thread = models.ForeignKey(Thread)
-    body = models.TextField(blank = False) 
 
