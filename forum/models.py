@@ -1,11 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
+from make.utils.models import AutoSlug
 
 class Category(models.Model):
     name = models.CharField(blank=False, max_length=100, primary_key=True)
-    slug = models.SlugField(unique=True)  
+    slug = models.SlugField(unique=True)
     def __unicode__(self):
         return self.name
+    def save(self):
+        AutoSlug.unique_slug(self, slug_source='name', slug_field='slug')
+        super(Category, self).save()
+        
 
 
 class Thread(models.Model):
@@ -14,7 +19,9 @@ class Thread(models.Model):
     category = models.ForeignKey(Category)
     def __unicode__(self):
         return self.topic
-
+    def save(self):
+        AutoSlug.unique_slug(self, slug_source='name', slug_field='slug')
+        super(Thread, self).save()
 
 class Poll(Thread):
     yeas = models.PositiveIntegerField()

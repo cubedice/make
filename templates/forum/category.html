@@ -2,9 +2,9 @@
 {% block content %}
 <table>
 
-    {% for category in category_list %}
+    {% for thread in thread_list %}
     <tr>
-        <a href="/forum/{{category.slug}}/">{{category}}</a>
+        <a href="/forum/{{thread.slug}}/">{{thread}}</a>
     </tr>
     <br>
     {% endfor %}

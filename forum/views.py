@@ -8,4 +8,4 @@ def index(request):
 
 def category(request, category_title):
     category = get_object_or_404(Category,pk = category_title)
-    return render_to_response('forum/'+category_title+'/', {"thread_list":category.thread_set})
+    return render_to_response('forum/category.html', {"thread_list":category.thread_set.all()})

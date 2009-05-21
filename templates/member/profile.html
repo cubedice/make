@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<table>
+
+    {% for forumpost  in member.forumpost_set.all %}
+    <tr>
+        {{forumpost.body}} <br>- from <a href="/forum/{{forumpost.thread.slug}}/">{{forumpost.thread}}</a>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
