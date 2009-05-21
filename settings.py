@@ -86,7 +86,7 @@ INSTALLED_APPS = (
     'haystack',
 )
 
-HAYSTACK_SEARCH_ENGINE='solr'
+HAYSTACK_SEARCH_ENGINE='whoosh'
 
 HAYSTACK_WHOOSH_PATH='c:/workspace/whoosh/make_index'
 

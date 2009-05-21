@@ -8,5 +8,6 @@ class Edit(models.Model):
 
 class Page(models.Model):
     title = models.CharField(max_length = "80", primary_key = True)
+    slug = models.SlugField(unique=True)  
     content = models.TextField(blank=True)
     edits = models.ManyToManyField(Edit)
