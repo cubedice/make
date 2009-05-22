@@ -2,22 +2,31 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <link rel="stylesheet" href="/media/css/style.css" />
-        <title>{% block title %}My amazing site{% endblock %}</title>
+        <link rel="stylesheet" href="/site_media/style.css" />
+        <title>{% block title %}the hackening.com{% endblock %}</title>
     </head>
 
     <body>
-        <div id="sidebar">
-            {% block sidebar %}
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/blog/">Blog</a></li>
-            </ul>
-            {% endblock %}
-        </div>
+        <div class="container_12">
+            <div class="grid_12" id="header">
+                {% block header %}
 
-        <div id="content">
-            {% block content %}{% endblock %}
+                <h1>//The Hackening</h1>
+                <div class="prefix_10">
+                    <a href="/">Home</a>
+                    <a href="/blog/">Blog</a>
+                </div>
+                {% endblock %}
+            </div>
+
+            <div class="grid_11 prefix_1" id="content">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="grid_2 prefix_10" id="footer">
+                <p>
+                created by mike d.
+                </p>
+            </div>
         </div>
     </body>
 </html>

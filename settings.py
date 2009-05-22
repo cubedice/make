@@ -35,7 +35,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/Users/kevindavenport/Documents/djangoprojects/make/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'make.urls'
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
-    "c:/workspace/make/templates/"
+    "/Users/kevindavenport/Documents/djangoprojects/make/templates/"
 )
 
 INSTALLED_APPS = (
@@ -87,7 +87,7 @@ INSTALLED_APPS = (
     'haystack',
 )
 
-HAYSTACK_SEARCH_ENGINE='whoosh'
+HAYSTACK_SEARCH_ENGINE='solr'
 
 HAYSTACK_WHOOSH_PATH='c:/workspace/whoosh/make_index'
 
