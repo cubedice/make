@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post" action="/accounts/{{member}}/save/">
+    <label for="title">Signature</label>
+    <input type="text" name="signature" id="signature"/>
+    <br>
+    <input type="submit" value="Save Changes">
+</form>
+{% endblock %}

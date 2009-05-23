@@ -4,7 +4,7 @@
 
     {% for thread in thread_list %}
     <tr>
-        <a href="/forum/{{thread.slug}}/">{{thread}}</a>
+        <a href="/forum/{{category.slug}}/{{thread.slug}}/">{{thread}}</a>
     </tr>
     <br>
     {% endfor %}

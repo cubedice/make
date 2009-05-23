@@ -14,13 +14,13 @@ class Category(models.Model):
 
 
 class Thread(models.Model):
-    topic = models.CharField(blank=False, max_length=90)
+    topic = models.CharField(blank=False, max_length=90, primary_key=True)
     slug = models.SlugField(unique=True)  
     category = models.ForeignKey(Category)
     def __unicode__(self):
         return self.topic
     def save(self):
-        AutoSlug.unique_slug(self, slug_source='name', slug_field='slug')
+        AutoSlug.unique_slug(self, slug_source='topic', slug_field='slug')
         super(Thread, self).save()
 
 class Poll(Thread):
