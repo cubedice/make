@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{request.user}} - Editing {{post.title}}{% endblock %}
+
+{% block content %}
+<h1>{{post.title}}</h1>
+<form method="post" action="/blog/save/">
+    <textarea name="content" rows="20" cols="60" ></textarea>
+    <br>
+    <input type="submit" value="Save Page">
+</form>
+{% endblock %}

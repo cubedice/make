@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from make.utils.models import AutoSlug
+from django import forms
 
 class Tag(models.Model):
     name = models.CharField(max_length = "80", primary_key = True)
@@ -16,4 +17,5 @@ class BlogPost(models.Model):
         super(BlogPost, self).save()
     def __unicode__(self):
         return self.title
+
 

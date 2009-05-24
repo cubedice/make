@@ -9,7 +9,6 @@ def view_post(request, post_title):
 
 @permission_required('blog.add_post')
 def create_post(request):
-    content = ""
     return render_to_response('blog/create.html')
 
 def save_post(request):
@@ -18,3 +17,8 @@ def save_post(request):
     post = BlogPost( title = post_title, body = content, author = request.user)
     post.save()
     return HttpResponseRedirect("/blog/"+post_title+"/")
+
+@permission_required('blog.add_post')
+def edit_post(request, post_title):
+    post = get_object_or_404(BlogPost, pk=post_title)
+    return render_to_response('blog/edit.html', {"post":post})

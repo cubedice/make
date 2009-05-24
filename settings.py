@@ -92,3 +92,4 @@ HAYSTACK_SEARCH_ENGINE='solr'
 
 HAYSTACK_WHOOSH_PATH='c:/workspace/whoosh/make_index'
 
+AUTH_PROFILE_MODULE = 'member.UserProfile'
