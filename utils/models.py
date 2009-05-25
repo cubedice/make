@@ -16,7 +16,7 @@ class AutoSlug():
       unique_slug(item, slug_source='field1', slug_field='field2')
       where the value of field slug_source will be used to prepopulate the value of slug_field.
       """
-      if getattr(item, slug_field): # if it's already got a slug, do nothing.
+      if not getattr(item, slug_field): # if it's already got a slug, do nothing.
           from django.template.defaultfilters import slugify
           slug = slugify(getattr(item,slug_source))
           itemModel = item.__class__

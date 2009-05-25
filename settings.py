@@ -61,6 +61,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'make.middleware.threadlocals.ThreadLocals',
 )
 
 ROOT_URLCONF = 'make.urls'
@@ -69,6 +70,10 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     "/Users/kevindavenport/Documents/djangoprojects/make/templates/"
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
 )
 
 INSTALLED_APPS = (

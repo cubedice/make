@@ -3,7 +3,7 @@
 
 Signature: {{profile.signature}}<br>
 <table>
-    {% for forumpost  in member.forumpost_set.all %}
+    {% for forumpost  in user.forumpost_set.all %}
     <tr>
         {{forumpost.body}} <br>- from <a href="/forum/{{forumpost.thread.category.slug}}/{{forumpost.thread.slug}}/">{{forumpost.thread}}</a>
     </tr>

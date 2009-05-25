@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+Blag
+{% endblock %}
+{% block content %}
+{% for post in latest_posts %}
+<p>
+<h2><a href="/blog/{{post.slug}}">{{post.title}}</a></h2>
+by {% firstof post.author.first_name post.author.username %}<br>
+{{post.body}}
+</p>
+{% endfor %}
+{% endblock %}

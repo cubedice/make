@@ -12,4 +12,4 @@ def category(request, category_title):
 
 def thread(request, category_title, thread_title):
     thread = get_object_or_404(Thread, slug=thread_title)
-    return render_to_response('forum/thread.html', {"post_list":thread.forumpost_set.all()})
+    return render_to_response('forum/thread.html', {"thread":thread, "post_list":thread.forumpost_set.all()})

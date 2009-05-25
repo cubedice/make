@@ -1,11 +1,11 @@
+{% extends "base.html" %}
 {% load markup %}
-<html>
-	<head>
-		<title>{{page_title}}</title>
-	</head>
-	<body>
-		{{content|markdown}}
-		<br>
-		<a href="/wiki/{{page_title}}/edit/">Edit</a>
-	</body>
-</html>
+
+{% block title %}
+{{page.title}}
+{% endblock %}
+{% block content %}
+<h1>{{page.title}}</h1>
+    {{content|markdown}}
+    <a href="/wiki/{{page.slug}}/edit/">Edit</a>
+{% endblock %}

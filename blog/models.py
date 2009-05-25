@@ -7,8 +7,9 @@ class Tag(models.Model):
     name = models.CharField(max_length = "80", primary_key = True)
 
 class BlogPost(models.Model):
-    title = models.CharField(max_length = "80", primary_key = True)
-    slug = models.SlugField(unique=True)  
+    title = models.CharField(max_length = "80", unique=False)
+    slug = models.SlugField(unique=True, primary_key=True)  
+    pub_date = models.DateTimeField('date published')
     body = models.TextField(blank = False) 
     author = models.ForeignKey(User)
     tags = models.ManyToManyField(Tag, blank=True)

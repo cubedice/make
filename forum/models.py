@@ -10,12 +10,12 @@ class Category(models.Model):
     def save(self):
         AutoSlug.unique_slug(self, slug_source='name', slug_field='slug')
         super(Category, self).save()
-        
-
 
 class Thread(models.Model):
     topic = models.CharField(blank=False, max_length=90, primary_key=True)
-    slug = models.SlugField(unique=True)  
+    slug = models.SlugField(unique=True)
+    poster = models.ForeignKey(User)
+    description = models.CharField(blank=True, max_length=400)
     category = models.ForeignKey(Category)
     def __unicode__(self):
         return self.topic
@@ -26,7 +26,6 @@ class Thread(models.Model):
 class Poll(Thread):
     yeas = models.PositiveIntegerField()
     nays = models.PositiveIntegerField()
-    description = models.TextField(blank = False) 
 
 class ForumPost(models.Model):
     isSticky = models.BooleanField()

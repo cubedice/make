@@ -1,10 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-
+<h1>Forum</h1><h2> >> {{thread.category}}</h2><h3> >> {{thread.topic}}</h3> -- posts<br>
 <table>
+    <tr>
+        {{thread.description}}
+    </tr>
     {% for forumpost  in post_list %}
     <tr>
-        {{forumpost.body}} <br>- from <a href="/accounts/{{forumpost.poster}}/">{{forumpost.poster}}</a>
+        <td class="grid_2">
+            <a href="/profile/{{forumpost.poster}}/">{{forumpost.poster}}</a><br>
+            posts: {{ forumpost.poster.forumpost_set.all|length }}
+        </td>
+        <td class="grid_7">
+            {{forumpost.body}} <hr>
+            {{forumpost.poster.signature}}
+        </td>
     </tr>
     {% endfor %}
 </table>

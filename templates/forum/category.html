@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<table>
-
+<h1>Forum</h1><h2> >> {{category}}</h2> -- threads
+<table class="prefix_1">
     {% for thread in thread_list %}
     <tr>
-        <a href="/forum/{{category.slug}}/{{thread.slug}}/">{{thread}}</a>
+        <td>
+            <h2><a href="/forum/{{category.slug}}/{{thread.slug}}/">{{thread}}</a></h2> 
+        </td>
+        <td>
+            by {{thread.poster.username}} | {{category.post_set|length}} posts
+        </td>
     </tr>
-    <br>
     {% endfor %}
 
 </table>

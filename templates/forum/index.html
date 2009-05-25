@@ -1,12 +1,16 @@
 {% extends "base.html" %}
+{% block title %}Forum{% endblock %}
 {% block content %}
-<table>
-
+<h1>Forum</h1> -- categories
+<table class="prefix_1">
     {% for category in category_list %}
     <tr>
-        <a href="/forum/{{category.slug}}/">{{category}}</a>
+        <td>
+            <h2><a href="/forum/{{category.slug}}/">{{category}}</a></h2>
+        </td>
+        <td>
+
     </tr>
-    <br>
     {% endfor %}
 
 </table>

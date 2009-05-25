@@ -3,18 +3,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <link rel="stylesheet" href="/site_media/style.css" />
-        <title>{% block title %}the hackening.com{% endblock %}</title>
+        <title>{% block title %}{% endblock %} -- the hackening</title>
     </head>
 
     <body>
         <div class="container_12">
             <div class="grid_12" id="header">
                 {% block header %}
-
-                <h1>//The Hackening</h1>
-                <div class="prefix_10">
-                    <a href="/">Home</a>
-                    <a href="/blog/">Blog</a>
+                <div class="prefix_4 userinfo">
+                    {{user.}}
+                    {% if user.is_authenticated %}
+                    <strong><a href="/profile/{{user.username}}">{% firstof user.first_name user.username %}</a></strong> - <a href="/accounts/password_change/">Change password</a> / <a href="/accounts/logout/">Log out</a>
+                    {% else %}
+                    <a href="/accounts/login/">Log in</a> / <a href="/accounts/create/">Create Account</a>
+                    {% endif %}
+                </div>
+                <a href="/"><img style="float:left; border-style:none; padding-left:15px; padding-top:15px;" src="/site_media/logo.png"></a>
+                <div class="prefix_10 menu">
+                    <a href="/blog/">Blog</a> . <a href="/forum/">Forum</a>
                 </div>
                 {% endblock %}
             </div>

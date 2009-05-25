@@ -1,8 +1,8 @@
-<html>
-	<head>
-		<title>{{page_title}} - Create</title>
-	</head>
-	<body>
-		This page does not yet exist, would you like to <a href="/wiki/{{page_title}}/edit/">create one?</a>
-	</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}
+{{page_title}} - Create
+{% endblock %}
+{% block content %}
+This page does not yet exist, would you like to <a href="/wiki/{{page_title}}/edit/">create one?</a>
+{% endblock %}

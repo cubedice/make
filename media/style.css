@@ -243,17 +243,18 @@
 
 
 #content {
-    background-color:#B2D983;
-    color:#564D01;
+    background-color:#cfd6c7;
+    color:#474001;
 }
 
 #footer {
-    background-color:#2B4E01;
+    background-color:#4b6130;
     color:#DED586;
+    font: bold small-caps 0.8em/1.4 Helvetica, Arial, "Luxi Sans", sans-serif;
 }
 
 #header {
-    background-color:#2B4E01;
+    background-color:#4b6130;
     color:#DED586;
 }
 
@@ -263,5 +264,27 @@
 }
 
 #content a {
-    color:#564D01;
+    color:#474001;
+}
+
+.userinfo {
+    padding:5px 10px;
+    float:right;
+    font: bold small-caps 0.8em/1.4 Helvetica, Arial, "Luxi Sans", sans-serif;
+}
+
+.menu {
+    padding:5px 10px;
+    clear:both;
+    float:right;
+    font: 1.4em Helvetica, Arial, "Luxi Sans", sans-serif;
+}
+
+tr {
+    border: 2px solid #4b6130;
+}    
+
+h1, h2 {
+    margin-top:10px;
+    margin-bottom:10px;
 }

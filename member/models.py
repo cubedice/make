@@ -6,7 +6,9 @@ from django import forms
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True, primary_key=True)
     url = models.URLField(blank=True)
-    signature = models.CharField(max_length="140")
+    signature = models.CharField(max_length="140", blank=True)
+    def __unicode__(self):
+        return self.user.username+"'s profile"
 
 class NewUserForm(forms.ModelForm):
     password = forms.CharField(max_length="140", widget=forms.PasswordInput)
