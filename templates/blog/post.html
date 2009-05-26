@@ -1,25 +1,10 @@
 {% extends "base.html" %}
-{% load comments %}
+{% load markup %}
 {% block title %}{{post.title}}{% endblock %}
 {% block content %}
-    <h1>{{post.title}}</h1>
-    {{post.body}}
+<p><span class="t1">{{post.title}}</span><span class="t3"> by {{post.author.username}}</span></p>
+    <p>{{post.body|textile}}</p>
     <hr>
-    {% get_comment_list for post as comment_list %}
-    {% for comment in comment_list %} 
-        <p> 
-            {{comment.user_name}}
-            <hr>
-            {{comment.comment}}
-        </p>
-    {% endfor %}
-    {% get_comment_form for post as form %}
-    <form action="{% comment_form_target %}" method="POST">
-      {{ form }}
-      <tr>
-        <td></td>
-        <td><input type="submit" name="preview" class="submit-post" value="Preview"></td>
-      </tr>
-    </form>
+    <p><a href="/forum/{{post.forumthread.category.slug}}/{{post.forumthread.slug}}/">Discuss it in the Forum!</a></p>
 {% endblock %}
 

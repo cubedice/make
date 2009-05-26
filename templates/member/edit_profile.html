@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-
+{% block title %}
+{{user.username}}.profile [edit]
+{% endblock %}
 {% block content %}
 
 <h1>{{user.username}}</h1>

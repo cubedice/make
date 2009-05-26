@@ -105,6 +105,9 @@
 /* Prefix Extra Space >> 12 Columns
 ----------------------------------------------------------------------------------------------------*/
 
+.container_12 .prefix_1_2 {
+	padding-left:40px;
+}
 
 .container_12 .prefix_1 {
 	padding-left:80px;
@@ -250,7 +253,7 @@
 #footer {
     background-color:#4b6130;
     color:#DED586;
-    font: bold small-caps 0.8em/1.4 Helvetica, Arial, "Luxi Sans", sans-serif;
+    font: bold small-caps 0.8em/1.4 Futura, Arial, "Luxi Sans", sans-serif;
 }
 
 #header {
@@ -270,19 +273,64 @@
 .userinfo {
     padding:5px 10px;
     float:right;
-    font: bold small-caps 0.8em/1.4 Helvetica, Arial, "Luxi Sans", sans-serif;
+    font: small-caps 0.7em/1.4 Futura, Arial, "Luxi Sans", sans-serif;
 }
 
 .menu {
     padding:5px 10px;
-    clear:both;
+    padding-top:30px;
+    clear:none;
     float:right;
-    font: 1.4em Helvetica, Arial, "Luxi Sans", sans-serif;
+    font: 1.4em Futura, Arial, "Luxi Sans", sans-serif;
 }
 
-tr {
-    border: 2px solid #4b6130;
+.s1 {
+    font: 2em Futura, Arial, "Luxi Sans", sans-serif;
+}
+
+.s2 {
+    font: 1.75em Futura, Arial, "Luxi Sans", sans-serif;
+}
+
+.s3 {
+    font: 1.5em Futura, Arial, "Luxi Sans", sans-serif;
+}
+
+.s4 {
+    font: 1.25em Futura, Arial, "Luxi Sans", sans-serif;
+}
+
+.t1 {
+    font: 2em "Times New Roman", serif;
+}
+
+.t2 {
+    font: 1.75em "Times New Roman", serif;
+}
+
+.t3 {
+    font: 1.5em "Times New Roman", serif;
+}
+
+.t4 {
+    font: 1.25em "Times New Roman", serif;
+}
+
+.thread_desc {
+    font: 1.25em "Times New Roman", serif;
+}
+
+td {
+    border-top: 1px solid #4b6130;
+    padding-top: 5px;
+    margin: 0px 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important; 
 }    
+
+hr {
+    color:#4b6130;
+}
 
 h1, h2 {
     margin-top:10px;

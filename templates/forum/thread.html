@@ -1,21 +1,32 @@
 {% extends "base.html" %}
+{% load markup %}
 {% block content %}
-<h1>Forum</h1><h2> >> {{thread.category}}</h2><h3> >> {{thread.topic}}</h3> -- posts<br>
-<table>
+<p><span class="s1">Forum</span><span class="s2"> >> {{thread.category}}</span><span class="s3"> >> {{thread.topic}}</span><span class="s4"> -- posts</span></p>
+<table class="prefix_1_2">
     <tr>
-        {{thread.description}}
+        <p><span class="thread_desc">{{thread.description|textile}}</span> - {{thread.poster.username}}</p>
     </tr>
     {% for forumpost  in post_list %}
     <tr>
         <td class="grid_2">
             <a href="/profile/{{forumpost.poster}}/">{{forumpost.poster}}</a><br>
-            posts: {{ forumpost.poster.forumpost_set.all|length }}
+            posts: {{ forumpost.poster.forumpost_set.all|length }}<br>
+            threads started: {{ forumpost.poster.thread_set.all|length }}
         </td>
         <td class="grid_7">
-            {{forumpost.body}} <hr>
-            {{forumpost.poster.signature}}
+            {{forumpost.body|textile}} <hr>
+            {{forumpost.poster.get_profile.signature}}
         </td>
     </tr>
     {% endfor %}
 </table>
+{% if user.is_authenticated %}
+<form method="post" action="/forum/{{thread.category.slug}}/{{thread.slug}}/">
+    <p><textarea name="body" rows="10" cols="60"></textarea></p>
+    <p><input type="submit" value="Submit"></p>
+</form>
+{% else %}
+    <p>Please <a href="/accounts/login/">log in</a> or <a href="/accounts/create/">register</a> to post in the forum</p>
+{% endif %}
+
 {% endblock %}

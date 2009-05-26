@@ -1,4 +1,5 @@
 from make.blog.models import BlogPost
+from make.forum.models import Thread, Category
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import permission_required
 from django.http import HttpRequest, HttpResponseRedirect
@@ -16,7 +17,10 @@ def save_post(request):
     post_title = request.POST["title"]
     content = request.POST["content"]
     import datetime
-    post = BlogPost( title = post_title, body = content, author = request.user, pub_date=datetime.datetime.now())
+    category = get_object_or_404( Category, pk = 'Blog' )
+    forumthread = Thread( topic = post_title, poster = request.user, category = category, description = "Login to discuss this blag post.")
+    forumthread.save()
+    post = BlogPost( title = post_title, body = content, author = request.user, pub_date=datetime.datetime.now(), forumthread = forumthread )
     post.save()
     return HttpResponseRedirect("/blog/"+post.slug+"/")
 

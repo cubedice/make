@@ -9,14 +9,14 @@ from make.utils.http import render
 
 def self_profile(request):
     username = request.user.username
-    return profile(request, username)
+    return HttpResponseRedirect('/profile/'+username+'/')
 
 def profile(request, username):
     member = get_object_or_404(User, username=username)
     profile = member.get_profile()
     if request.user.is_authenticated(): 
         return edit_profile(request, member, profile)
-    return render('member/profile',dict({'profile':profile}))    
+    return render('member/profile',dict({'profile':profile, 'member':member}))    
 
 @login_required
 def edit_profile(request, member, profile):

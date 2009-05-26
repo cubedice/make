@@ -6,6 +6,8 @@ from make.utils.http import render
 import datetime
 import markdown
 
+def index(request):
+    return render("wiki/index")
 
 def view_page(request, page_title):
     page = get_object_or_404(Page, pk = page_title)

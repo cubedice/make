@@ -1,17 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Forum</h1><h2> >> {{category}}</h2> -- threads
-<table class="prefix_1">
+<p><span class="s1">Forum</span><span class="s2"> >> {{category}}</span><span class="s3"> -- threads</span></p>
+<table class="prefix_1_2">
     {% for thread in thread_list %}
     <tr>
-        <td>
+        <td class="grid_7">
             <h2><a href="/forum/{{category.slug}}/{{thread.slug}}/">{{thread}}</a></h2> 
         </td>
-        <td>
-            by {{thread.poster.username}} | {{category.post_set|length}} posts
+        <td class="grid_2">
+            by {{thread.poster.username}} | {{thread.forumpost_set.all|length}} responses
         </td>
     </tr>
     {% endfor %}
 
 </table>
+
+<!-- TODO: new thread form -->
+
+{% if user.is_authenticated %}
+<span class="t4">Create a new Thread</span><br>
+<form method="post" action="/forum/{{category.slug}}/">
+    <p><label for="title">Title:</label><input type="text" name="title"></input>
+    <p><label for="body">Description:</label><textarea name="body" rows="10" cols="60"></textarea></p>
+    <p><input type="submit" value="Submit"></p>
+</form>
+{% else %}
+    <p>Please <a href="/accounts/login/">log in</a> or <a href="/accounts/create/">register</a> to post in the forum</p>
+{% endif %}
 {% endblock %}

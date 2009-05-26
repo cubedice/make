@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from make.utils.models import AutoSlug
+from make.forum.models import Thread 
 from django import forms
 
 class Tag(models.Model):
@@ -13,6 +14,7 @@ class BlogPost(models.Model):
     body = models.TextField(blank = False) 
     author = models.ForeignKey(User)
     tags = models.ManyToManyField(Tag, blank=True)
+    forumthread = models.ForeignKey(Thread)
     def save(self):
         AutoSlug.unique_slug(self, slug_source='title', slug_field='slug')
         super(BlogPost, self).save()

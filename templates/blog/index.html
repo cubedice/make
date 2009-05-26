@@ -1,14 +1,15 @@
 {% extends "base.html" %}
-
+{% load markup %}
 {% block title %}
 Blag
 {% endblock %}
 {% block content %}
 {% for post in latest_posts %}
 <p>
-<h2><a href="/blog/{{post.slug}}">{{post.title}}</a></h2>
-by {% firstof post.author.first_name post.author.username %}<br>
-{{post.body}}
+<span class="t2"><a href="/blog/{{post.slug}}">{{post.title}}</a></span>
+<span class="t4"> by {{ post.author.username }}</span></p>
+<p>
+{{post.body|textile|truncatewords:"100"}}
 </p>
 {% endfor %}
 {% endblock %}
