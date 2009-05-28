@@ -16,20 +16,38 @@ urlpatterns = patterns('',
     (r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': '/Users/kevindavenport/Documents/djangoprojects/make/media'}),
     (r'^$', 'make.home.index'),
-    (r'^wiki/$', 'make.wiki.views.index'),
-    (r'^wiki/new/$', 'make.wiki.views.create_page'),
-    (r'^wiki/(?P<page_title>[^/]+)/$', 'make.wiki.views.view_page'),
-    (r'^wiki/(?P<page_title>[^/]+)/edit/$', 'make.wiki.views.edit_page'),
-    (r'^wiki/(?P<page_title>[^/]+)/save/$', 'make.wiki.views.save_page'),
-    (r'^forum/$' , 'make.forum.views.index'),
-    (r'^forum/(?P<category_title>[^/]+)/$' , 'make.forum.views.category'),
-	(r'^forum/(?P<category_title>[^/]+)/(?P<thread_title>[^/]+)/$', 'make.forum.views.thread'),
-    (r'^comments/', include('django.contrib.comments.urls')),
-    (r'^blog/$', 'make.blog.views.index'), 
-    (r'^blog/new/$', 'make.blog.views.create_post'), 
-	(r'^blog/save/$', 'make.blog.views.save_post'), 
-    (r'^blog/(?P<post_title>[^/]+)/$', 'make.blog.views.view_post'), 
-    (r'^blog/(?P<post_title>[^/]+)/edit/$', 'make.blog.views.edit_post'), 
+)
+
+urlpatterns += patterns('make.projects.views',
+    (r'^projects/$', 'index'),
+    (r'^projects/new/$', 'create_project'),
+    (r'^projects/(?P<project_title>[^/]+)/$', 'view_project'),
+    (r'^projects/(?P<project_title>[^/]+)/edit/$', 'edit_project'),
+)
+
+urlpatterns += patterns('make.wiki.views',
+    (r'^wiki/$', 'index'),
+    (r'^wiki/new/$', 'create_page'),
+    (r'^wiki/(?P<page_title>[^/]+)/$', 'view_page'),
+    (r'^wiki/(?P<page_title>[^/]+)/edit/$', 'edit_page'),
+    (r'^wiki/(?P<page_title>[^/]+)/save/$', 'save_page'),
+)
+
+urlpatterns += patterns('make.forum.views',
+    (r'^forum/$' , 'index'),
+    (r'^forum/(?P<category_title>[^/]+)/$' , 'category'),
+	(r'^forum/(?P<category_title>[^/]+)/(?P<thread_title>[^/]+)/$', 'thread'),
+)        
+
+urlpatterns += patterns('make.blog.views',
+    (r'^blog/$', 'index'), 
+    (r'^blog/new/$', 'create_post'), 
+	(r'^blog/save/$', 'save_post'), 
+    (r'^blog/(?P<post_title>[^/]+)/$', 'view_post'), 
+    (r'^blog/(?P<post_title>[^/]+)/edit/$', 'edit_post'), 
+)
+
+urlpatterns += patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^accounts/login/$', 'django.contrib.auth.views.login'),
     (r'^accounts/logout/$', 'django.contrib.auth.views.logout'),

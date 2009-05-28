@@ -10,6 +10,7 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
+<div align="center">
 {% if error_message %}
 <p class="errornote">{{ error_message }}</p>
 {% endif %}
@@ -30,5 +31,6 @@
 <script type="text/javascript">
 document.getElementById('id_username').focus()
 </script>
+</div>
 </div>
 {% endblock %}

@@ -86,6 +86,7 @@ INSTALLED_APPS = (
 	'make.forum',
     'make.utils',
 	'make.member',
+    'make.projects',
     'django.contrib.markup',
     'django.contrib.comments',
     'django.contrib.admin',

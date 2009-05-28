@@ -3,7 +3,9 @@
 {{member.username}}.profile
 {% endblock %}
 {% block content %}
-
+<br>
+<h1 class="fancy">{{member.username}}</h1>
+<br>
 Signature: {{profile.signature}}<br>
 <table>
     {% for forumpost  in member.forumpost_set.all %}

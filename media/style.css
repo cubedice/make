@@ -259,8 +259,12 @@
 #header {
     background-color:#4b6130;
     color:#DED586;
+    padding-top:12px;
 }
 
+#header a {
+    text-decoration:none;
+}
 
 :visited, :link {
     color:#DED586;
@@ -271,33 +275,33 @@
 }
 
 .userinfo {
-    padding:5px 10px;
+    padding:0px 15px;
     float:right;
-    font: small-caps 0.7em/1.4 Futura, Arial, "Luxi Sans", sans-serif;
+    font-size: 0.7em/1.4;
 }
 
 .menu {
-    padding:5px 10px;
-    padding-top:30px;
-    clear:none;
+    clear:right;
+    padding:5px 15px;
+    padding-top:15px;
     float:right;
-    font: 1.4em Futura, Arial, "Luxi Sans", sans-serif;
+    font-size: 1.4em;
 }
 
 .s1 {
-    font: 2em Futura, Arial, "Luxi Sans", sans-serif;
+    font-size: 2em;
 }
 
 .s2 {
-    font: 1.75em Futura, Arial, "Luxi Sans", sans-serif;
+    font-size: 1.75em;
 }
 
 .s3 {
-    font: 1.5em Futura, Arial, "Luxi Sans", sans-serif;
+    font-size: 1.5em;
 }
 
 .s4 {
-    font: 1.25em Futura, Arial, "Luxi Sans", sans-serif;
+    font-size: 1.25em;
 }
 
 .t1 {
@@ -317,16 +321,23 @@
 }
 
 .thread_desc {
-    font: 1.25em "Times New Roman", serif;
+    font-size: 1.25em "Times New Roman", serif;
 }
 
-td {
+.ftd {
     border-top: 1px solid #4b6130;
     padding-top: 5px;
     margin: 0px 0px !important;
     padding-left: 0px !important;
     padding-right: 0px !important; 
-}    
+}
+
+.title {
+    font-size: 3em;
+    float:left;
+    padding-left:15px;
+    text-decoration:none;
+}
 
 hr {
     color:#4b6130;
@@ -336,3 +347,9 @@ h1, h2 {
     margin-top:10px;
     margin-bottom:10px;
 }
+
+th {
+    text-align:left;
+    float:left;
+}
+

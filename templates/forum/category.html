@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<p><span class="s1">Forum</span><span class="s2"> >> {{category}}</span><span class="s3"> -- threads</span></p>
+<span class="fancy"><p><span class="s1">Forum</span><span class="s2"> >> {{category}}</span><span class="s3"> -- threads</span></p></span>
 <table class="prefix_1_2">
     {% for thread in thread_list %}
     <tr>
-        <td class="grid_7">
+        <td class="grid_7 ftd">
             <h2><a href="/forum/{{category.slug}}/{{thread.slug}}/">{{thread}}</a></h2> 
         </td>
-        <td class="grid_2">
+        <td class="grid_2 ftd">
             by {{thread.poster.username}} | {{thread.forumpost_set.all|length}} responses
         </td>
     </tr>
@@ -18,10 +18,27 @@
 <!-- TODO: new thread form -->
 
 {% if user.is_authenticated %}
-<span class="t4">Create a new Thread</span><br>
+<p>
+<span class="t4">Create a new Thread</span><br></p>
 <form method="post" action="/forum/{{category.slug}}/">
-    <p><label for="title">Title:</label><input type="text" name="title"></input>
-    <p><label for="body">Description:</label><textarea name="body" rows="10" cols="60"></textarea></p>
+    <table>
+        <tr>
+            <th>
+                <label for="title">Title:</label>
+            </th>
+            <td>
+                <input type="text" name="title"></input>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label for="body">Description:</label>
+            </th>
+            <td>
+                <textarea name="body" rows="10" cols="60"></textarea></p>
+            </td>
+        </tr>
+    </table>
     <p><input type="submit" value="Submit"></p>
 </form>
 {% else %}

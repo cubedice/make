@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 {% load markup %}
 {% block content %}
-<p><span class="s1">Forum</span><span class="s2"> >> {{thread.category}}</span><span class="s3"> >> {{thread.topic}}</span><span class="s4"> -- posts</span></p>
+<p style="padding-bottom:20px;"><span class="fancy"><span class="s1">Forum</span><span class="s2"> >> {{thread.category}}</span><span class="s3"> >> {{thread.topic}}</span><span class="s4"> -- posts</span></span></p>
 <table class="prefix_1_2">
     <tr>
         <p><span class="thread_desc">{{thread.description|textile}}</span> - {{thread.poster.username}}</p>
     </tr>
     {% for forumpost  in post_list %}
     <tr>
-        <td class="grid_2">
+        <td class="grid_2 ftd">
             <a href="/profile/{{forumpost.poster}}/">{{forumpost.poster}}</a><br>
             posts: {{ forumpost.poster.forumpost_set.all|length }}<br>
             threads started: {{ forumpost.poster.thread_set.all|length }}
         </td>
-        <td class="grid_7">
+        <td class="grid_7 ftd">
             {{forumpost.body|textile}} <hr>
             {{forumpost.poster.get_profile.signature}}
         </td>

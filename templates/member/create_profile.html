@@ -3,9 +3,15 @@
 {% block title %}Create an Account{% endblock %}
 
 {% block content %}
-<h1>Create an Account</h1>
+    <br>
+<h1 class="fancy">Create an Account</h1>
+<br>
 <form method="post" action="/accounts/create/">
-    {{ form.as_p }}
-    <input type="submit" value="Create Profile">
+    <table>
+        {{ form.as_table }}
+    </table>
+    <p>
+        <input type="submit" value="Create Profile">
+    </p>
 </form>
 {% endblock %}

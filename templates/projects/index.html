@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load markup %}
+{% block title %}
+Projects
+{% endblock %}
+{% block content %}
+{% for project in latest_projects %}
+<p>
+<span class="t2"><a href="/blog/{{project.slug}}">{{project.title}}</a></span>
+<span class="t4"> Owner: {{ project.owner.username }}</span></p>
+<p>
+{{post.description|textile|truncatewords:"100"}}
+</p>
+{% endfor %}
+{% endblock %}
+

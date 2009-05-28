@@ -5,10 +5,18 @@
 {% block content %}
 <form method="post" action="/blog/save/">
     <label for="title">Post Title</label>
-    <input type="text" name="title" id="title"/>
-    <br>
-    <textarea name="content" rows="20" cols="60" ></textarea>
-    <br>
+    <table>
+        <tr>
+            <td>
+                <input type="text" name="title" id="title"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <textarea name="content" rows="20" cols="60" ></textarea>
+            </td>
+        </tr>
+    </table>
     <input type="submit" value="Save Page">
 </form>
 {% endblock %}
