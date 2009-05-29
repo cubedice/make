@@ -1,0 +1,4 @@
+<a href="/forum/{{object.category.slug}}/{{object.slug}}/">{{object.topic}}</a>
+<p>Yeas: {{object.yeas}}</p>
+<p>Nays: {{object.nays}}</p>
+<p>by {{object.poster}}</p>

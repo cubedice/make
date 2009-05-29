@@ -1,0 +1,5 @@
+{% load markup %}
+<a href="/wiki/{{object.slug}}/">{{object.title}}</a>
+<p>
+{{object.contents|textile|truncatewords:"100"}}
+</p>

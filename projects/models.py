@@ -2,6 +2,8 @@ from django.db import models
 from make.member.models import User
 from make.forum.models import Thread
 from make.wiki.models import Page
+from django.forms import ModelForm
+from make.utils.models import AutoSlug
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
@@ -18,3 +20,8 @@ class Project(models.Model):
         super(Project, self).save()
     def __unicode__(self):
         return self.title
+
+class ProjectForm(ModelForm):
+    class Meta:
+        model = Project
+        exclude = ('slug','last_update', 'wiki_page', 'forum_thread',)

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{project.title}}{% endblock %}
+
+{% block content %}
+    <br>
+    <h1 class="fancy">{{project.title}}</h1> owner: {{project.owner.username}}
+<br>
+<p>
+    {{project.description}}
+</p>
+</form>
+{% endblock %}

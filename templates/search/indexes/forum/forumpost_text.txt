@@ -1,0 +1,4 @@
+{% load markup %}
+<a href="/forum/{{object.thread.category.slug}}/{{object.thread.slug}}/">{{object.thread}}</a>
+<p>{{object.body|textile}}</p>
+<p>by {{object.poster}}</p>

@@ -1,0 +1,6 @@
+{% load markup %}
+<a href="/blog/{{object.slug}}/">{{object.title}}</a>
+<p>
+{{object.body|textile|truncatewords:"100"}}
+</p>
+<p>by {{object.author}}</p>

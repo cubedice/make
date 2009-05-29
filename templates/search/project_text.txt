@@ -1,0 +1,6 @@
+{% load markup %}
+
+<a href="/projects/{{object.slug}}/">{{object.title}}</a>
+<p>
+{{object.description|textile|truncatewords:"100"}}
+</p>

@@ -96,6 +96,8 @@ INSTALLED_APPS = (
 
 HAYSTACK_SEARCH_ENGINE='solr'
 
+HAYSTACK_SOLR_URL ='http://localhost:8983/solr/'
+
 HAYSTACK_WHOOSH_PATH='c:/workspace/whoosh/make_index'
 
 AUTH_PROFILE_MODULE = 'member.UserProfile'

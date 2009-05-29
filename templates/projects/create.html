@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Create Project{% endblock %}
+
+{% block content %}
+    <br>
+    <h1 class="fancy">New Project</h1>
+<br>
+<form method="post" action="/projects/new/">
+    <table>
+        {{ form.as_table }}
+    </table>
+    <p>
+        <input type="submit" value="Create Profile">
+    </p>
+</form>
+{% endblock %}
