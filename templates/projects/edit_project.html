@@ -5,4 +5,10 @@ Project - {{form.title}}
 {% endblock %}
 {% block content %}
 <!-- TODO: form for editing here -->
+<form method="post" action="/projects/{{project.slug}}/edit/">
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" name="save" value="Save Changes">
+</form>
 {% endblock %}

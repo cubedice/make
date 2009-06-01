@@ -1,5 +1,25 @@
 {% extends "base.html" %}
 {% block title %}Wiki{% endblock %}
-{% block content %}
-<p><span class="s1">Wiki</span><span class="s2"> -- categories</span></p>
+{% block full_content %}
+<div class="grid_12" id="content">
+    <div class="wiki_sidebar grid_2">
+        <p>
+        {% block sidebar %}
+            Main Page
+        {% endblock %}
+        </p>
+        <form method="post" action="/wiki/search/">
+            <input type="text" name="search"></input>
+        </form> 
+    </div>
+    <div class="wiki_tab grid_9">
+        <a href="edit/">Edit</a>
+        <a href="history/">History</a>
+    </div>
+    <div class="wiki_content grid_9">
+    {% block wiki_content %}
+    <p><span class="fancy"><span class="s1">Wiki</span><span class="s2"> -- main page</span></span></p>
+    {% endblock %}
+    </div>
+</div>
 {% endblock %}

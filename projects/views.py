@@ -18,7 +18,7 @@ def edit_project(request, project_title):
     project = get_object_or_404( Project, pk = project_title )
     if request.method == 'POST':
         return save_project(request, project_title)
-    form =  ProjectForm( instance = instance )
+    form =  ProjectForm( instance = project )
     return render('projects/edit_project', dict( form=form ))
 
 def create_project(request):
@@ -39,7 +39,7 @@ def create_project(request):
 
 def save_project(request, project_title):
     import datetime
-    project = get_object_or_404( pk = page_title )
+    project = get_object_or_404(Project, pk = project_title )
     project.last_update = datetime.datetime.now()
     form = ProjectForm(request.POST, instance = project)
     if form.is_valid():

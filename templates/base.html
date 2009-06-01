@@ -34,10 +34,11 @@ separate:'none',});
                 </div>
                 {% endblock %}
             </div>
-
+            {% block full_content %}
             <div class="grid_10 prefix_1 suffix_1" id="content">
                 {% block content %}{% endblock %}
             </div>
+            {% endblock %}
             <div class="grid_2 prefix_10 fancy" id="footer">
                 <p>
                 created by mike d.

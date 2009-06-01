@@ -339,6 +339,22 @@
     text-decoration:none;
 }
 
+
+.wiki_tab {
+    float:right;
+    text-align:right;
+    clear:none;
+}
+
+.wiki_sidebar {
+    float:left;
+    clear:none;
+}
+
+.wiki_content {
+    float:right;
+}
+
 hr {
     color:#4b6130;
 }
