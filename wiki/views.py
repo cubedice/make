@@ -7,7 +7,8 @@ import datetime
 import markdown
 
 def index(request):
-    return render("wiki/index")
+    freshest_pages = Page.objects.all().order_by('-last_edit')[:5]
+    return render("wiki/index", dict(freshest_pages=freshest_pages))
 
 def view_page(request, page_title):
     page = get_object_or_404(Page, pk = page_title)
@@ -15,6 +16,12 @@ def view_page(request, page_title):
         return save_page(request, page_title)
     content = page.content
     return render("wiki/view", dict({"page":page, "content":markdown.markdown(content)}))
+
+def page_history(request, page_title):
+    page = get_object_or_404(Page, pk = page_title)
+    edits = page.edits.order_by('-pub_date')
+    return render("wiki/history", dict({"page":page, "edits":edits}))
+
 
 @permission_required('wiki.change_page')
 def edit_page(request, page_title):
@@ -31,14 +38,14 @@ def save_page(request, page_title):
         page.content = content
         page.edits.add(edit)
     except Page.DoesNotExist:
-        page = Page( title = page_title, content = content)
+        page = Page( title = page_title, content = content, last_edit=datetime.datetime.now())
     page.save()
     return HttpResponseRedirect("/wiki/"+page.slug+"/")
 
 @permission_required('wiki.add_page')
 def create_page(request):
     if request.method == 'POST':
-        page = Page( title = request.POST['title'], content = request.POST['content'])
+        page = Page( title = request.POST['title'], content = request.POST['content'], last_edit=datetime.datetime.now())
         page.save()
         return HttpResponseRedirect("/wiki/"+page.slug+"/")
     return render("wiki/new")

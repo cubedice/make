@@ -31,6 +31,7 @@ urlpatterns += patterns('make.wiki.views',
     (r'^wiki/(?P<page_title>[^/]+)/$', 'view_page'),
     (r'^wiki/(?P<page_title>[^/]+)/edit/$', 'edit_page'),
     (r'^wiki/(?P<page_title>[^/]+)/save/$', 'save_page'),
+    (r'^wiki/(?P<page_title>[^/]+)/history/$', 'page_history'),
 )
 
 urlpatterns += patterns('make.forum.views',

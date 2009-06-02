@@ -3,22 +3,36 @@
 {% block full_content %}
 <div class="grid_12" id="content">
     <div class="wiki_sidebar grid_2">
-        <p>
+        <p style="border-bottom: 1px solid #4b6130;">
         {% block sidebar %}
             Main Page
         {% endblock %}
         </p>
-        <form method="post" action="/wiki/search/">
-            <input type="text" name="search"></input>
+        <form method="post" action="/wiki/search/" class="searchbox">
+            <input type="text" size="17" name="search" id="s"></input>
+            <input type="image" id='go' src='/site_media/search-button.png'></input>
+        <script type="text/javascript">
+            $('input').focus(function(){
+                $(this).parent().addClass('searchfocus');
+            }).blur(function(){
+                 $(this).parent().removeClass('searchfocus');
+            });
+		</script>
         </form> 
     </div>
-    <div class="wiki_tab grid_9">
-        <a href="edit/">Edit</a>
-        <a href="history/">History</a>
-    </div>
+    {% block edit_tabs %}
+    {% endblock %}
     <div class="wiki_content grid_9">
+        <p><span class="fancy"><span class="s1">{% block page_title %}Main page{% endblock %}</span></span></p>
     {% block wiki_content %}
-    <p><span class="fancy"><span class="s1">Wiki</span><span class="s2"> -- main page</span></span></p>
+    <span class="t3">Recent Activity</span>
+    <ul>
+    {% for page in freshest_pages %}
+        <li>
+        <a href="/wiki/{{page.slug}}/">{{page.title}}</a> -- edited by {{page.edits.latest.editor}} on {{page.edits.latest.pub_date}}
+        </li>
+    {% endfor %}
+    </ul>
     {% endblock %}
     </div>
 </div>

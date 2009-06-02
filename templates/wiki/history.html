@@ -1,0 +1,27 @@
+{% extends "wiki/index.html" %}
+{% load markup %}
+
+{% block title %}
+{{page.title}}
+{% endblock %}
+{% block page_title %}
+<a href="/wiki/{{page.slug}}/">{{page.title}}</a> -- history
+{% endblock %}
+
+{% block wiki_content %}
+<table>
+<tr>
+<th style="width:250px; padding:0px 15px">Before</th>
+<th style="width:250px; padding:0px 15px">After</th>
+<th>Editor</th>
+</tr>
+
+{% for edit in edits %}
+<tr>
+    <td class="ftd">{{edit.before|textile}} </td>
+    <td class="ftd"> {{edit.after|textile}} </td>
+    <td class="ftd"> {{edit.editor}}<br>on {{edit.pub_date|date:"N d P"}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

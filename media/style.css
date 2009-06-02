@@ -332,6 +332,34 @@
     padding-right: 0px !important; 
 }
 
+.searchbox {
+    width: 134px;
+    height: 24px;
+    background: url(/site_media/search-unsel.png);
+}    
+
+.searchbox #s {
+    float: left;
+    padding: 0;
+    margin: 6px 0 0 6px;
+    border: 0;
+    width: 95px;
+    background: none;
+}
+
+.searchbox #go {
+    float: right;
+    margin: 0;
+}
+
+
+.searchfocus
+{
+    background: #FFF url(/site_media/search-sel.png);
+    
+}
+
+
 .title {
     font-size: 3em;
     float:left;
@@ -348,7 +376,11 @@
 
 .wiki_sidebar {
     float:left;
+    margin-top:20px;
+    margin-bottom:20px;
+    padding:10px 20px;
     clear:none;
+    border: 1px solid #4b6130; 
 }
 
 .wiki_content {
@@ -365,7 +397,51 @@ h1, h2 {
 }
 
 th {
-    text-align:left;
-    float:left;
+   text-align:left;
 }
+
+
+/* begin css tabs */
+
+ul#tabnav { /* general settings */
+text-align: right; /* set to left, right or center */
+margin: 1em 0 1em 0; /* set margins as desired */
+font-size: .85em;
+border-bottom: 1px solid #4b6130; /* set border COLOR as desired */
+list-style-type: none;
+padding: 3px 10px 3px 10px; /* THIRD number must change with respect to padding-top (X) below */
+}
+
+ul#tabnav li { /* do not change */
+display: inline;
+}
+
+body#tab1 li.tab1, body#tab2 li.tab2, body#tab3 li.tab3, body#tab4 li.tab4 { /* settings for selected tab */
+border-bottom: 1px solid #fff; /* set border color to page background color */
+background-color: #fff; /* set background color to match above border color */
+}
+
+body#tab1 li.tab1 a, body#tab2 li.tab2 a, body#tab3 li.tab3 a, body#tab4 li.tab4 a { /* settings for selected tab link */
+background-color: #fff; /* set selected tab background color as desired */
+color: #000; /* set selected tab link color as desired */
+position: relative;
+top: 1px;
+padding-top: 4px; /* must change with respect to padding (X) above and below */
+}
+
+ul#tabnav li a { /* settings for all tab links */
+padding: 3px 4px; /* set padding (tab size) as desired; FIRST number must change with respect to padding-top (X) above */
+border: 1px solid #4b6130; /* set border COLOR as desired; usually matches border color specified in #tabnav */
+background-color: #cfd6c7; /* set unselected tab background color as desired */
+color: #474001; /* set unselected tab link color as desired */
+margin-right: 0px; /* set additional spacing between tabs as desired */
+text-decoration: none;
+border-bottom: none;
+}
+
+ul#tabnav a:hover { /* settings for hover effect */
+background: #fff; /* set desired hover color */
+}
+
+/* end css tabs */
 

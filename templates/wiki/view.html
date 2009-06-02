@@ -1,11 +1,36 @@
-{% extends "base.html" %}
+{% extends "wiki/index.html" %}
 {% load markup %}
 
 {% block title %}
 {{page.title}}
 {% endblock %}
-{% block content %}
-<h1>{{page.title}}</h1>
+{% block page_title %}
+{{page.title}}
+{% endblock %}
+
+{% block edit_tabs %}
+    <div class="wiki_tab grid_9">
+        <ul id="tabnav">
+            {% if user.is_superuser %}
+                <li class="tab1">
+                    <a href="edit/">Edit</a>
+                </li>
+            {% else %}
+                {% for permission in user.get_all_permissions %}
+                    {% ifequal permission 'wiki.change_page' %}
+                        <li class="tab1">
+                            <a href="edit/">Edit</a>
+                        </li>
+                    {% endifequal %}
+                {% endfor %}
+            {% endif %}
+            <li class ="tab2">
+                <a href="history/">History</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block wiki_content %}
     {{content|textile}}
-    <a href="/wiki/{{page.slug}}/edit/">Edit</a>
 {% endblock %}
