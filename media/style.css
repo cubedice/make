@@ -387,6 +387,14 @@
     float:right;
 }
 
+.reddiff {
+    background:#F1B29E;
+}
+
+.greendiff {
+    background:#BEE696;
+}
+
 hr {
     color:#4b6130;
 }

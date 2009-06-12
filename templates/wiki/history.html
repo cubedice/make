@@ -18,8 +18,13 @@
 
 {% for edit in edits %}
 <tr>
-    <td class="ftd">{{edit.before|textile}} </td>
-    <td class="ftd"> {{edit.after|textile}} </td>
+    <td class="ftd" valign="top">
+        {{edit.before|safe|linebreaksbr}}
+    </td>
+    <td class="ftd" valign="top">
+        {{edit.after|safe|linebreaksbr}}
+    </td>
+    
     <td class="ftd"> {{edit.editor}}<br>on {{edit.pub_date|date:"N d P"}}</td>
 </tr>
 {% endfor %}

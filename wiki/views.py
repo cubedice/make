@@ -33,7 +33,40 @@ def save_page(request, page_title):
     content = request.POST["content"]
     try:
         page = Page.objects.get(pk = page_title)
-        edit = Edit(editor = request.user, before = page.content, after = content, pub_date=datetime.datetime.now())
+        from difflib import context_diff
+        import re
+        diff = context_diff(page.content.splitlines(), content.splitlines(), 3)
+        before_start = re.compile(r'[*]{3}\s(?P<start>[0-9]+)[,](?P<end>[0-9]+)\s[*]{3}')
+        after_start = p = re.compile(r'[-]{3}\s(?P<start>[0-9]+)[,](?P<end>[0-9]+)\s[-]{3}')
+        before = ''
+        after = ''
+        for line in diff:
+            if(before_start.search(line)):
+                before += line + '\n'
+                while True:
+                    try:
+                        line = diff.next()
+                    except StopIteration:
+                        break
+                    if (after_start.search(line)):
+                        break
+                    if( line.startswith('!') ):
+                        line = '<span class="reddiff">' + line + '</span>'
+                    before += line + '\n'
+            if( after_start.search(line) ):
+                after += line + '\n'
+                while True:
+                    try:
+                        line = diff.next()
+                    except StopIteration:
+                        break
+                    if( before_start.search(line) ):
+                        break
+                    if( line.startswith('!') or line.startswith('+') ):
+                        line = '<span class="greendiff">' + line + '</span>'
+                    after += line  + '\n'
+
+        edit = Edit(editor = request.user, before = before, after = after, pub_date=datetime.datetime.now())
         edit.save()
         page.content = content
         page.edits.add(edit)
